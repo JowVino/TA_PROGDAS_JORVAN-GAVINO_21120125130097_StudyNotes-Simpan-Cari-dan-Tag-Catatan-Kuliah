@@ -91,9 +91,6 @@ class StudyNote(tk.Tk):
         self.note_listbox = tk.Listbox(list_frame)
         self.note_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-        self.count_label = ttk.Label(right_frame, text="")
-        self.count_label.pack(anchor="w")
-
         scrollbar = ttk.Scrollbar(list_frame, orient=tk.VERTICAL, command=self.note_listbox.yview)
         scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
         self.note_listbox.config(yscrollcommand=scrollbar.set)
@@ -153,7 +150,6 @@ class StudyNote(tk.Tk):
         self.notes_for_list = notes
         self._set_preview("")
         self.selected_note_id = None
-        self.count_label.config(text=f"Total: {len(notes)} catatan")
 
     def _get_form_data(self):
         title = self.title_entry.get().strip()
